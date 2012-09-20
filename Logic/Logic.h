@@ -29,6 +29,7 @@
 -(void)playLooserSound;
 -(void)registerResult:(bool)isWin;
 -(NSArray *)getUsageList;
+-(void)atLike;
 
 //FacebookServiceDelegate
 -(void)didLogin;

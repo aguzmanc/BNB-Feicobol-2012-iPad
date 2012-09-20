@@ -42,7 +42,10 @@
     [_facebookService login];
 }
 
-
+-(void)atLike
+{
+    [_facebookService checkIfUserIsFan];
+}
 
 -(void)playWrongCardSound
 {

@@ -1,7 +1,6 @@
 #import <UIKit/UIKit.h>
-
+#import "FBLikeButton.h"
 #import "Logic.h"
-#import "BoardConfig.h"
 
 
 @protocol WinDialogControllerDelegate;
@@ -11,6 +10,7 @@
     id<WinDialogControllerDelegate> _delegate;
     
     Logic * _logic;
+    FBLikeButton * _likeButton;
     IBOutlet UIImageView * _background;
 }
 
@@ -25,6 +25,9 @@
 -(IBAction)keepPlaying:(id)sender;
 // Public Methods
 -(void)updateBackground;
+
+// Actions
+-(IBAction)okAtLike;
 
 @end
 

@@ -25,7 +25,7 @@
 -(void)login;
 -(void)logout;
 -(void)publish;
-
+-(void)checkIfUserIsFan;
 @end
 
 

@@ -28,7 +28,10 @@
 }
 
 
-
+-(IBAction)okAtLike 
+{
+	[_logic atLike];
+}
 
 
 
@@ -36,9 +39,19 @@
 #pragma mark Events
 -(void)updateBackground
 {
-    _background.image = [UIImage imageNamed:[[BoardConfig sharedInstance] winBackground]];
+    
 }
 
+-(void)generateLikeContent
+{
+	if (_likeButton != nil) {
+		[_likeButton removeFromSuperview];
+		[_likeButton release];
+	}
+	
+	_likeButton = [[FBLikeButton alloc] initWithFrame:CGRectMake(0, 130, 320, 75) andUrl:TOP_APP_URL];
+	[self.view addSubview:_likeButton];
+}
 
 
 
@@ -91,6 +104,7 @@
 
 - (void)viewDidUnload
 {
+    if (_likeButton != nil)	[_likeButton release];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;

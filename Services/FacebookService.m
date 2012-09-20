@@ -31,7 +31,9 @@
 
 -(void)login
 {
-    [_facebook authorize:[NSArray arrayWithObjects:@"publish_stream",nil]];
+     NSArray * permissions = [NSArray arrayWithObjects:@"publish_stream", @"email", @"user_likes", nil];
+    [_facebook authorize:permissions];
+   
 }
 
 
@@ -58,7 +60,10 @@
 	[_facebook dialog:@"feed" andParams:params andDelegate:self];
 }
 
-
+-(void)checkIfUserIsFan
+{
+	[_facebook requestWithGraphPath:@"me/likes" andDelegate:self];
+}
 
 
 
@@ -88,9 +93,6 @@
 	NSLog(@"Facebook logged out");
     _isLogged = false;
 }
-
-
-
 
 
 
